@@ -24,7 +24,7 @@ function getUserIP() {
 //Lay chuoi Json tu server IP Stack
 function sendJsontoServer() {
     $userIP = getUserIP();
-    $access_key = "?access_key=cd1d043a0e456e138b5860da18c72fa4";
+    $access_key = "?access_key=a445fc0239b44b1f4c9836d0b902f08f";
     $array_json = "http://api.ipstack.com/" . $userIP . $access_key;
     $json = file_get_contents($array_json);
     $obj = json_decode($json);
