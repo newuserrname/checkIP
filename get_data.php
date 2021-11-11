@@ -22,27 +22,27 @@ function getUserIP() {
 }
 
 //Lay chuoi Json tu server IP Stack
-function sendJsontoServer() {
-    $userIP = getUserIP();
-    $access_key = "?access_key=a445fc0239b44b1f4c9836d0b902f08f";
-    $array_json = "http://api.ipstack.com/" . $userIP . $access_key;
-    $json = file_get_contents($array_json);
-    $obj = json_decode($json);
-    return $obj;
-}
+// function sendJsontoServer() {
+//     $userIP = getUserIP();
+//     $access_key = "?access_key=deec386f725a69d22022097b76108ddc";
+//     $array_json = "http://api.ipstack.com/" . $userIP . $access_key;
+//     $json = file_get_contents($array_json);
+//     $obj = json_decode($json);
+//     return $obj;
+// }
 
 //Lay chuoi JSON thoi tiet hien tai cua Vi tri User
-function getCurrentData($region, $coutry_name, $access_key) {
-    $location = $region . "," . $coutry_name . "&units=metric";
-    $array_json = "http://api.openweathermap.org/data/2.5/weather?q=" . $location . $access_key;
+function getCurrentData($access_key) {
+    
+    $array_json = "https://api.openweathermap.org/data/2.5/weather?q=danang"  . $access_key;
     $json = file_get_contents($array_json);
     $obj = json_decode($json);
     return $obj;
 }
 
 //Lay chuoi JSON chua du lieu du bao thoi tiet trong 5 ngay
-function getForcast($city_id, $access_key) {
-    $array_json = "http://api.openweathermap.org/data/2.5/forecast?id=" . $city_id . "&units=metric" . $access_key;
+function getForcast($access_key) {
+    $array_json = "https://api.openweathermap.org/data/2.5/weather?q=danang" . "&units=metric" . $access_key;
     $json = file_get_contents($array_json);
     $obj = json_decode($json);
     return $obj;
